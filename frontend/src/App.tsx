@@ -46,16 +46,16 @@ function App() {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-6 md:p-12 font-sans selection:bg-fuchsia-500/30">
       
       {/* Contenedor principal estilo "Glassmorphism" */}
-      <div className="max-w-4xl w-full bg-slate-900/80 backdrop-blur-xl rounded-[2rem] shadow-[0_0_60px_-15px_rgba(192,132,252,0.2)] p-10 md:p-16 border border-white/10 flex flex-col items-center relative overflow-hidden">
+      <div className="max-w-4xl w-full bg-slate-900/80 backdrop-blur-xl rounded-4xl shadow-[0_0_60px_-15px_rgba(192,132,252,0.2)] p-10 md:p-16 border border-white/10 flex flex-col items-center relative overflow-hidden">
         
         {/* Destellos decorativos de fondo */}
         <div className="absolute -top-32 -left-32 w-72 h-72 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none"></div>
         <div className="absolute -bottom-32 -right-32 w-72 h-72 bg-emerald-500/20 rounded-full blur-[80px] pointer-events-none"></div>
 
         {/* Título Super Llamativo */}
-        <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-fuchsia-400 via-purple-400 to-indigo-400 mb-4 text-center tracking-tighter drop-shadow-sm z-10 leading-tight">
+        <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-linear-to-br from-fuchsia-400 via-purple-400 to-indigo-400 mb-4 text-center tracking-tighter drop-shadow-sm z-10 leading-tight">
           Python Webview<br/>
-          <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
             Zayser Template
           </span>
         </h1>
@@ -83,7 +83,7 @@ function App() {
           {/* Botón Principal */}
           <button 
             onClick={handleIncrement}
-            className="w-full py-4 bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white rounded-xl transition-all font-bold text-lg cursor-pointer shadow-[0_0_30px_rgba(192,132,252,0.4)] active:scale-95 flex items-center justify-center gap-4 border border-fuchsia-400/30 hover:border-fuchsia-300/50"
+            className="w-full py-4 bg-linear-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white rounded-xl transition-all font-bold text-lg cursor-pointer shadow-[0_0_30px_rgba(192,132,252,0.4)] active:scale-95 flex items-center justify-center gap-4 border border-fuchsia-400/30 hover:border-fuchsia-300/50"
           >
             <span>Sumar +1</span>
             <span className="bg-black/30 px-4 py-1.5 rounded-lg text-xl font-black font-mono">
