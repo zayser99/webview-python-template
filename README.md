@@ -1,41 +1,40 @@
-# AI Document Builder 📄🤖
+# 🚀 Zayser Template: Python Webview + React
 
-Una aplicación de escritorio de arquitectura híbrida construida con **React** y **Python**. Combina la flexibilidad e interactividad de un frontend web moderno con el poder y el acceso nativo al sistema operativo de Python.
+El punto de partida definitivo (y sin dolores de cabeza) para crear **Aplicaciones de Escritorio Híbridas**. Combina la inigualable experiencia de desarrollo web moderno (React, Vite, Tailwind) con el poder y el acceso nativo al sistema operativo de Python.
 
-## 🚀 Tech Stack
-
-*   **Frontend:** React 19, TypeScript, Vite.
-*   **Backend:** Python 3, `pywebview`.
-*   **Empaquetado:** PyInstaller (Multiplataforma: Mac & Windows).
-*   **Orquestación:** Node.js, `run-script-os`.
-
-Para conocer a detalle cómo se comunican estas tecnologías y cómo funciona el motor multiplataforma, revisa nuestra [Documentación de Arquitectura](docs/ARQUITECTURA.md).
+Olvídate de pelear con la conexión entre JavaScript y Python o lidiar con configuraciones de empaquetado tediosas. Esta plantilla lo tiene todo resuelto desde el primer segundo.
 
 ---
 
-## ⚙️ Requisitos Previos
+## ✨ Características Clave
 
-Asegúrate de tener instalado en tu computadora:
-*   [Node.js](https://nodejs.org/) (incluye `npm`)
-*   [Python 3](https://www.python.org/)
+* ⚡ **Frontend Ultrarrápido:** React 19, TypeScript, Vite y el novísimo **Tailwind CSS v4** (sin archivos de configuración extra, todo en CSS).
+* 🐍 **Backend Nativo:** Python 3 + `pywebview` para levantar ventanas nativas reales (WKWebView en Mac, EdgeHTML/Chromium en Windows).
+* 🌉 **API Bridge Integrado:** Incluye un ejemplo funcional. El estado (un contador) vive en la memoria de Python y se refleja instantáneamente en React.
+* 🛠️ **Orquestador Cross-Platform:** Un único comando en la raíz (`npm run build`) detecta tu SO, limpia carpetas, compila el frontend, empaqueta el ejecutable final con PyInstaller y, en caso de Mac, purga atributos y firma el código (Apple Silicon Ready).
 
 ---
 
-## 🛠 Entorno de Desarrollo (Dev Mode)
+## 🚀 Cómo Empezar (Modo Desarrollo)
 
-Para trabajar de forma fluida, levantaremos el frontend y el backend por separado. Esto permite tener *Hot-Reload* (los cambios visuales se actualizan al instante sin reiniciar la app).
+Para aprovechar el *Hot-Reload* (ver tus cambios de UI al instante), levantaremos el frontend y el backend en dos terminales separadas.
 
-### 1. Levantar el Frontend
-Abre una terminal en la raíz del proyecto y ejecuta:
+### 1. Preparar el repositorio
+```bash
+# Haz clic en "Use this template" en GitHub o clónalo localmente
+npm install  # Instala las herramientas del orquestador en la raíz
+```
+
+### 2. Levantar el Frontend (Terminal 1)
+Entra a la carpeta del frontend e inicializa Vite usando `pnpm`:
 ```bash
 cd frontend
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
-*(Vite empezará a servir el frontend en `http://localhost:5173`)*
 
-### 2. Levantar el Backend (Ventana Nativa)
-Abre una **segunda terminal** en la raíz del proyecto y prepara el entorno de Python:
+### 3. Levantar el Backend (Terminal 2)
+Abre otra terminal en la raíz y configura el entorno de Python:
 
 **En Mac / Linux:**
 ```bash
@@ -54,29 +53,27 @@ pip install -r requirements.txt
 cd backend
 python main.py
 ```
-*(Esto abrirá la ventana de escritorio nativa e inyectará el frontend que está corriendo en Vite. Además, conectará tu API Bridge).*
+*(¡Listo! Se abrirá la ventana de escritorio nativa conectada a tu frontend y al Bridge de Python).*
 
 ---
 
 ## 📦 Empaquetado para Producción (Build)
 
-Gracias al orquestador cruzado configurado en la raíz del proyecto, crear un ejecutable final para tu sistema operativo (Mac `.app` o Windows `.exe`) toma un solo comando.
+Generar tu ejecutable final (`.app` en Mac o `.exe` en Windows) para distribuir a tus usuarios toma literalmente un solo paso. Desde la raíz de tu proyecto ejecuta:
 
-1. Instala las dependencias del orquestador en la raíz (solo la primera vez):
-```bash
-npm install
-```
-
-2. Ejecuta el comando mágico de compilación:
 ```bash
 npm run build
 ```
 
-El script se encargará automáticamente de:
-1. Detectar si estás en Mac o Windows para usar los comandos correctos.
-2. Limpiar rastros de *builds* anteriores.
-3. Compilar React (TypeScript y Vite) en archivos estáticos.
-4. Empaquetar todo con PyInstaller e incluir firmas de seguridad (ej. para Apple Silicon).
+El script orquestador se encarga de todo el trabajo sucio. Tu aplicación final aparecerá lista para usarse en la carpeta **`/dist`** de la raíz de tu proyecto.
 
-🎉 **Resultado:** Encontrarás tu aplicación final lista para usar y distribuir en la carpeta `dist/` en la raíz de tu proyecto.
+---
 
+## 📁 Estructura del Proyecto
+
+* **`/frontend`**: Tu app de React + Vite. Aquí maquetas toda tu UI.
+* **`/backend`**:
+  * `main.py`: Punto de entrada que inicializa `pywebview`.
+  * `/api/bridge.py`: El corazón nativo. Aquí agregas las funciones de Python (manejo de archivos, SO, IA) que quieres exponer y llamar desde React.
+* **`package.json` (raíz)**: El director de orquesta. Contiene los scripts que compilan la aplicación entera tanto para Mac como para Windows.
+* **`/docs`**: Revisa nuestra [Documentación de Arquitectura](docs/ARQUITECTURA.md) para entender a detalle cómo se conectan todas estas piezas.
