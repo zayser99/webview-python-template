@@ -32,7 +32,7 @@ def main():
     is_debug = not getattr(sys, 'frozen', False)
     
     window = webview.create_window(
-        title='AI Document Builder',
+        title='Your App Name',
         url=entry,
         js_api=api,
         width=1280,
