@@ -1,5 +1,5 @@
 # Node
-frontend/node_modules/
+node_modules/
 frontend/dist/
 npm-debug.log
 yarn-error.log
@@ -13,7 +13,9 @@ __pycache__/
 *$py.class
 backend/.pytest_cache/
 
-# PyInstaller
+# PyInstaller / Build output
+build/
+dist/
 backend/build/
 backend/dist/
 

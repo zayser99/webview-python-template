@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "build:app": "npm run build && cd ../backend && pyinstaller --windowed --add-data 'static:static' main.py",
     "preview": "vite preview"
   },
   "dependencies": {

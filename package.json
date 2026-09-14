@@ -1,0 +1,19 @@
+{
+  "name": "doc-agent",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run clean && npm run build-frontend && run-script-os",
+    "build:macos": "cd backend && ../venv/bin/pyinstaller --windowed --add-data 'static:static' --distpath ../dist --workpath ../build main.py --noconfirm && xattr -cr ../dist/main.app && codesign --force --deep --sign - ../dist/main.app",
+    "build:windows": "cd backend && ..\\venv\\Scripts\\pyinstaller --windowed --add-data \"static;static\" --distpath ..\\dist --workpath ..\\build main.py --noconfirm",
+    "build:linux": "cd backend && ../venv/bin/pyinstaller --windowed --add-data 'static:static' --distpath ../dist --workpath ../build main.py --noconfirm",
+    "build-frontend": "cd frontend && npm run build",
+    "clean": "run-script-os",
+    "clean:default": "rm -rf dist build backend/static backend/dist backend/build",
+    "clean:windows": "if exist dist rd /S /Q dist & if exist build rd /S /Q build & if exist backend\\dist rd /S /Q backend\\dist & if exist backend\\build rd /S /Q backend\\build & if exist backend\\static rd /S /Q backend\\static"
+  },
+  "devDependencies": {
+    "run-script-os": "^2.2.1"
+  }
+}
+
